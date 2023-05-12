@@ -10,7 +10,7 @@ public class IndexController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String index(Model model) {
-		model.addAttribute("mensagem", "Olá, mundo!");	
+		model.addAttribute("mensagem", "Olá, mundo!");
 		return "index.html";
 	}
 }
