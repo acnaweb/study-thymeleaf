@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.github.acnaweb.study_thymeleaf.model.Pessoa;
+import com.github.acnaweb.study_thymeleaf.repository.PessoaMockup;
 
 @Controller
 @RequestMapping("/pessoas")
@@ -20,13 +21,15 @@ public class PessoaController {
 	}
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public String list() {
+	public String list(Model model) {
+		model.addAttribute("pessoas", PessoaMockup.list());		
 		return "pessoa/list.html";
 	}
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String save(Pessoa pessoa) {
-		System.out.println(pessoa.getNome());		
+	public String save(Pessoa pessoa, Model model) {
+		// service.save(pessoa)
+		model.addAttribute("pessoa", new Pessoa());		
 		return "pessoa/form.html";
 	}
 }

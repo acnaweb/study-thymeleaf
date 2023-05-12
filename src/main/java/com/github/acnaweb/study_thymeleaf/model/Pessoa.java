@@ -8,6 +8,9 @@ public class Pessoa {
 	private LocalDate dataNascimento;
 	private SexoType sexo;
 
+	public Pessoa() {	
+	}
+	
 	public Pessoa(Long id, String nome, LocalDate dataNascimento, SexoType sexo) {
 		this.id = id;
 		this.nome = nome;

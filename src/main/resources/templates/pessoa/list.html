@@ -1,10 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Listagem de Pessoas</title>
 </head>
 <body>
-	<h1>Listagem</h1>
+	<h1>Listagem de Pessoas</h1>
+	
+	<table>
+		<tr>
+			<th>Id</th>
+			<th>Nome</th>
+			<th>Data Nascimento</th>
+			<th>Sexo</th>
+		</tr>		
+		<tr th:each="pessoa: ${pessoas}">
+			<td th:text="${pessoa.id}"></td>
+			<td th:text="${pessoa.nome}"></td>
+			<td th:text="${pessoa.dataNascimento}"></td>
+			
+			<td th:switch="${pessoa.sexo.name()}">			
+				<span th:case="'M'" th:text="Masculino"></span>
+				<span th:case="'F'" th:text="Feminino"></span>
+			</td>
+		</tr>			
+	</table>
+	
 </body>
 </html>
